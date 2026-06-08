@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class Book {
   private String id;
   private String title;
-  private String author;
+  private Author author;
   private List<BookCopy> bookCopyList;
   private Category category;
 }
