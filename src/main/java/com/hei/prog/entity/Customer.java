@@ -18,6 +18,7 @@ public class Customer {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private String id;
+
   private String firstname;
   private String lastname;
 }

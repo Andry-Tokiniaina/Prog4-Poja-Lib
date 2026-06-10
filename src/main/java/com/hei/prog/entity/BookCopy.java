@@ -18,6 +18,7 @@ public class BookCopy {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private String id;
+
   private Book bookcopy;
   private boolean available;
   private double buy_price;
