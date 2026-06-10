@@ -8,34 +8,20 @@ import com.hei.prog.repository.SaleRepository;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class StockService {
-  private ArrivalRepository arrivalRepository;
-  private SaleRepository saleRepository;
+  private final ArrivalRepository arrivalRepository;
+  private final SaleRepository saleRepository;
 
   public List<BookCopy> getStockAt(Instant t) {
-
-    List<BookCopy> bookCopies = new ArrayList<>();
-
-    for (Arrival a : arrivalRepository.getReceivedAt(t)) {
-      bookCopies.addAll(a.getBooks());
-    }
+    List<BookCopy> bookCopies = new ArrayList<>(getBookReceivedAt(t));
 
     for (Sale s : saleRepository.getSalesAt(t)) {
-      for (BookCopy bc : bookCopies) {
-        for (BookCopy sbc : s.getBook()) {
-          if (Objects.equals(bc.getId(), sbc.getId())) {
-            bookCopies.remove(bc);
-          }
-        }
-      }
+      // en attente de bookrepository
     }
 
     return bookCopies;
@@ -43,22 +29,17 @@ public class StockService {
 
   public List<BookCopy> getBookSalesAt(Instant t) {
     List<BookCopy> bookCopies = new ArrayList<>();
-
     for (Sale s : saleRepository.getSalesAt(t)) {
-      bookCopies.addAll(s.getBook());
+      // en attente de bookrepository
     }
-
     return bookCopies;
   }
 
   public List<BookCopy> getBookReceivedAt(Instant t) {
-
     List<BookCopy> bookCopies = new ArrayList<>();
-
     for (Arrival a : arrivalRepository.getReceivedAt(t)) {
-      bookCopies.addAll(a.getBooks());
+      // en attente de bookrepository
     }
-
     return bookCopies;
   }
 
@@ -66,9 +47,8 @@ public class StockService {
     if (book_name == null) {
       throw new IllegalArgumentException("need the name of the book");
     }
-    return this.getStockAt(Instant.now()).stream()
-        .map(b -> b.getBookcopy().getTitle())
-        .anyMatch(title -> title.equals(book_name));
+    return true;
+    // en attente de bookrepository
   }
 
   public void createArrival(Arrival arrival) {

@@ -3,17 +3,17 @@ package com.hei.prog.repository;
 import com.hei.prog.entity.Sale;
 import java.time.Instant;
 import java.util.List;
-import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@NoArgsConstructor
-public class SaleRepository {
-  public List<Sale> getSalesAt(Instant t) {
-    throw new RuntimeException("Not implemented yet");
-  }
+public interface SaleRepository extends JpaRepository<Sale, String> {
+  @Query("SELECT s FROM Sale s WHERE s.soldAt <= :t")
+  List<Sale> getSalesAt(@Param("t") Instant t);
 
-  public void createSale(Sale sale) {
-    throw new RuntimeException("Not implemented yet");
+  default void createSale(Sale sale) {
+    save(sale);
   }
 }
