@@ -19,15 +19,14 @@ public class Book {
   private String title;
 
   @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_id")
-    private Author author;
-
+  @JoinColumn(name = "author_id")
+  private Author author;
 
   @Enumerated(EnumType.STRING)
   private Category category;
 
   @Enumerated(EnumType.STRING)
-    private BookFormat format;
+  private BookFormat format;
 
   private String isbn;
   private Integer publicationYear;
