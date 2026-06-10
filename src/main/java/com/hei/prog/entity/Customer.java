@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Component
 public class Customer {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
