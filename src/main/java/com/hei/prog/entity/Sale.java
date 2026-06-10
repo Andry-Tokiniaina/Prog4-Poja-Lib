@@ -1,19 +1,18 @@
 package com.hei.prog.entity;
 
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.joda.time.DateTime;
-import org.springframework.stereotype.Component;
 
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Component
 @Data
 public class Sale {
-  private String id;
-  private List<BookCopy> book;
-  private Customer customer;
-  private DateTime date;
+  @Id private String id;
+  private String customerId;
+  private Instant soldAt;
 }
