@@ -1,9 +1,9 @@
 package com.hei.prog.repository;
 
-import com.hei.prog.entity.Sale;
+import com.hei.prog.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SaleRepository extends JpaRepository<Sale, String> {
+public interface BookRepository extends JpaRepository<Book, String> {
 }
