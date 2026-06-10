@@ -9,11 +9,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Component
-@Entity
 public class Customer {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
