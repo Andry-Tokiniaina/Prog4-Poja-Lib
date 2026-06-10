@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book {
-  @Id
-  private String id;
+  @Id private String id;
   private String title;
   private String authorId;
+
   @Enumerated(EnumType.STRING)
   private Category category;
 }

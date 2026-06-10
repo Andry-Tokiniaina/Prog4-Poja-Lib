@@ -12,8 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Sale {
-  @Id
-  private String id;
+  @Id private String id;
   private String customerId;
   private Instant soldAt;
 }

@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class Arrival {
-  @Id
-  private String id;
+  @Id private String id;
   private Instant receivedAt;
 }

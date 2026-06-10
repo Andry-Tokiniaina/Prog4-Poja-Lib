@@ -11,8 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookCopy {
-  @Id
-  private String id;
+  @Id private String id;
 
   private String bookId;
   private String arrivalId;
