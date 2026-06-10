@@ -21,6 +21,7 @@ public class BookCopy {
   private boolean available;
   private double buy_price;
   private double sell_price;
+
   @Enumerated(EnumType.STRING)
   private BookFormat format;
 }
