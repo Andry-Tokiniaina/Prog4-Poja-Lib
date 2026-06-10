@@ -1,6 +1,10 @@
 package com.hei.prog.entity;
 
 import com.hei.prog.entity.enums.Category;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +15,12 @@ import org.springframework.stereotype.Component;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Book {
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
   private String id;
+
   private String title;
   private Author author;
   private List<BookCopy> bookCopyList;
