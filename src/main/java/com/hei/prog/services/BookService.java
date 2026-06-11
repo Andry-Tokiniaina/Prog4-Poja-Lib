@@ -25,4 +25,17 @@ public class BookService {
 
     return bookRepository.save(book);
   }
+
+
+  public void deleteBook(String id) {
+    if (id == null || id.isBlank()) {
+      throw new IllegalArgumentException("L'id du livre est obligatoire");
+    }
+
+    if (!bookRepository.existsById(id)) {
+      throw new EntityNotFoundException("Livre introuvable pour l'id : " + id);
+    }
+
+    bookRepository.deleteById(id);
+  }
 }
