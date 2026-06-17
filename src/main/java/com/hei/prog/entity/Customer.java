@@ -1,22 +1,22 @@
 package com.hei.prog.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Entity
 public class Customer {
-  @Id
-  @GeneratedValue(strategy = GenerationType.UUID)
-  private String id;
-
+  @Id private String id;
   private String firstname;
   private String lastname;
+
+  @OneToMany(mappedBy = "sale")
+  private List<Sale> sales;
 }
