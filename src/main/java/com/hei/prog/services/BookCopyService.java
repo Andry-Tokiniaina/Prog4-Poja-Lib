@@ -34,8 +34,7 @@ public class BookCopyService {
 
   public BookCopy update(String id, BookCopy details) {
     BookCopy existing = getById(id);
-    if (existing == null)
-      throw new IllegalArgumentException("bo not found");
+    if (existing == null) throw new IllegalArgumentException("bo not found");
     return bookCopyRepository.save(details);
   }
 
