@@ -2,7 +2,6 @@ package com.hei.prog.entity;
 
 import com.hei.prog.entity.enums.Category;
 import jakarta.persistence.*;
-
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;

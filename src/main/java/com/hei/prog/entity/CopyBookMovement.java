@@ -16,5 +16,8 @@ public class CopyBookMovement {
   @Id private String id;
   @ManyToOne private BookCopy bookCopy;
   private int number;
-  @ManyToOne @JoinColumn(name = "movement_id") private Movement movement;
+
+  @ManyToOne
+  @JoinColumn(name = "movement_id")
+  private Movement movement;
 }

@@ -13,8 +13,10 @@ import lombok.NoArgsConstructor;
 public class BookCopy {
   @Id private String id;
   @ManyToOne private Book book;
+
   @Enumerated(EnumType.STRING)
   private BookFormat format;
+
   private double buy_price;
   private double sell_price;
 }
