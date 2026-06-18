@@ -1,9 +1,7 @@
 package com.hei.prog.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +11,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 public class CopyBookMovement {
-  @Id private String id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private UUID id;
+
   @ManyToOne private BookCopy bookCopy;
   private int number;
 

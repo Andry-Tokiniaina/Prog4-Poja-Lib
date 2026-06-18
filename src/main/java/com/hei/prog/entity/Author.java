@@ -1,9 +1,8 @@
 package com.hei.prog.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import java.util.List;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Author {
-  @Id private String id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private UUID id;
+
   private String firstname;
   private String lastname;
 
