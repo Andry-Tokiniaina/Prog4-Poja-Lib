@@ -34,14 +34,9 @@ public class BookCopyService {
 
   public BookCopy update(String id, BookCopy details) {
     BookCopy existing = getById(id);
-    existing.setBookId(details.getBookId());
-    existing.setArrivalId(details.getArrivalId());
-    existing.setSaleId(details.getSaleId());
-    existing.setAvailable(details.isAvailable());
-    existing.setBuy_price(details.getBuy_price());
-    existing.setSell_price(details.getSell_price());
-    existing.setFormat(details.getFormat());
-    return bookCopyRepository.save(existing);
+    if (existing == null)
+      throw new IllegalArgumentException("bo not found");
+    return bookCopyRepository.save(details);
   }
 
   public void delete(String id) {
