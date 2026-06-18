@@ -1,11 +1,8 @@
 package com.hei.prog.controller;
 
 import com.hei.prog.entity.Arrival;
-import com.hei.prog.entity.BookCopy;
 import com.hei.prog.entity.Sale;
 import com.hei.prog.services.StockService;
-import java.time.Instant;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,24 +20,25 @@ public class StockController {
 
   private final StockService stockService;
 
-  // GET /stock?t=2024-01-01T00:00:00Z
-  @GetMapping
-  public List<BookCopy> getStockAt(@RequestParam Instant t) {
-    return stockService.getStockAt(t);
-  }
+  /*
+    // GET /stock?t=2024-01-01T00:00:00Z
+    @GetMapping
+    public List<BookCopy> getStockAt(@RequestParam Instant t) {
+      return stockService.getStockAt(t);
+    }
 
-  // GET /stock/arrivals?t=2024-01-01T00:00:00Z
-  @GetMapping("/arrivals")
-  public List<BookCopy> getBookReceivedAt(@RequestParam Instant t) {
-    return stockService.getBookReceivedAt(t);
-  }
+    // GET /stock/arrivals?t=2024-01-01T00:00:00Z
+    @GetMapping("/arrivals")
+    public List<BookCopy> getBookReceivedAt(@RequestParam Instant t) {
+      return stockService.getBookReceivedAt(t);
+    }
 
-  // GET /stock/sales?t=2024-01-01T00:00:00Z
-  @GetMapping("/sales")
-  public List<BookCopy> getBookSalesAt(@RequestParam Instant t) {
-    return stockService.getBookSalesAt(t);
-  }
-
+    // GET /stock/sales?t=2024-01-01T00:00:00Z
+    @GetMapping("/sales")
+    public List<BookCopy> getBookSalesAt(@RequestParam Instant t) {
+      return stockService.getBookSalesAt(t);
+    }
+  **/
   // GET /stock/search?book_name=Harry+Potter
   @GetMapping("/search")
   public boolean getBookByName(@RequestParam String book_name) {

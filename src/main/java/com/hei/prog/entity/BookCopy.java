@@ -1,9 +1,7 @@
 package com.hei.prog.entity;
 
 import com.hei.prog.entity.enums.BookFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,8 +12,11 @@ import lombok.NoArgsConstructor;
 @Entity
 public class BookCopy {
   @Id private String id;
-  @ManyToOne private Book bookcopy;
+  @ManyToOne private Book book;
+
+  @Enumerated(EnumType.STRING)
   private BookFormat format;
+
   private double buy_price;
   private double sell_price;
 }
