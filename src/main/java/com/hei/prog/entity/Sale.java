@@ -1,5 +1,6 @@
 package com.hei.prog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Sale extends Movement {
   @OneToMany(mappedBy = "movement")
+  @JsonIgnore
   private List<CopyBookMovement> copyBooks;
 
   @ManyToOne private Customer customer;

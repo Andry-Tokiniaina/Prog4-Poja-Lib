@@ -1,5 +1,6 @@
 package com.hei.prog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -20,5 +21,6 @@ public class Customer {
   private String lastname;
 
   @OneToMany(mappedBy = "customer")
+  @JsonIgnore
   private List<Sale> sales;
 }

@@ -1,5 +1,6 @@
 package com.hei.prog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hei.prog.entity.enums.Category;
 import jakarta.persistence.*;
 import java.util.List;
@@ -21,6 +22,7 @@ public class Book {
 
   @ManyToOne private Author author;
 
+  @JsonIgnore
   @OneToMany(mappedBy = "book")
   private List<BookCopy> bookCopyList;
 

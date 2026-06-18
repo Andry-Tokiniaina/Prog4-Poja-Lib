@@ -1,5 +1,6 @@
 package com.hei.prog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -19,6 +20,7 @@ public class Author {
   private String firstname;
   private String lastname;
 
+  @JsonIgnore
   @OneToMany(mappedBy = "author")
   private List<Book> books;
 }
