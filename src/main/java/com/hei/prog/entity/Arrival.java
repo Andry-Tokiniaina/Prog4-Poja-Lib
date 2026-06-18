@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 public class Arrival extends Movement {
-  @OneToMany(mappedBy = "copy_book_movement")
+  @OneToMany(mappedBy = "movement")
   private List<CopyBookMovement> copyBooks;
 }

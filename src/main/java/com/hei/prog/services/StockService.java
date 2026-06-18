@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class StockService {
   private final ArrivalRepository arrivalRepository;
   private final SaleRepository saleRepository;
-
+/*
   public List<BookCopy> getStockAt(Instant t) {
     List<BookCopy> bookCopies = new ArrayList<>(getBookReceivedAt(t));
 
@@ -42,7 +42,7 @@ public class StockService {
     }
     return bookCopies;
   }
-
+**/
   public boolean getBookByName(String book_name) {
     if (book_name == null) {
       throw new IllegalArgumentException("need the name of the book");

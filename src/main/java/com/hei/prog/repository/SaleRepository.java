@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SaleRepository extends JpaRepository<Sale, String> {
-  @Query("SELECT s FROM Sale s WHERE s.soldAt <= :t")
-  List<Sale> getSalesAt(@Param("t") Instant t);
 
   default void createSale(Sale sale) {
     save(sale);

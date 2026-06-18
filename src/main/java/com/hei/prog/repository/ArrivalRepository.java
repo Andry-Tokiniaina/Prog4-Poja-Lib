@@ -10,9 +10,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ArrivalRepository extends JpaRepository<Arrival, String> {
-  @Query("SELECT a FROM Arrival a WHERE a.receivedAt <= :t")
-  List<Arrival> getReceivedAt(@Param("t") Instant t);
-
   default void createArrival(Arrival arrival) {
     save(arrival);
   }

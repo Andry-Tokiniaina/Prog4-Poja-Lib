@@ -2,6 +2,7 @@ package com.hei.prog.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class CopyBookMovement {
   @Id private String id;
-  private BookCopy bookCopy;
+  @ManyToOne private BookCopy bookCopy;
   private int number;
-  @ManyToOne private Movement movement;
+  @ManyToOne @JoinColumn(name = "movement_id") private Movement movement;
 }

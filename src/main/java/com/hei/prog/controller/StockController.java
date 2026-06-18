@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StockController {
 
   private final StockService stockService;
-
+/*
   // GET /stock?t=2024-01-01T00:00:00Z
   @GetMapping
   public List<BookCopy> getStockAt(@RequestParam Instant t) {
@@ -40,7 +40,7 @@ public class StockController {
   public List<BookCopy> getBookSalesAt(@RequestParam Instant t) {
     return stockService.getBookSalesAt(t);
   }
-
+**/
   // GET /stock/search?book_name=Harry+Potter
   @GetMapping("/search")
   public boolean getBookByName(@RequestParam String book_name) {

@@ -1,10 +1,8 @@
 package com.hei.prog.entity;
 
 import com.hei.prog.entity.enums.Category;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,8 +18,9 @@ public class Book {
 
   @ManyToOne private Author author;
 
-  @OneToMany(mappedBy = "book_copy")
+  @OneToMany(mappedBy = "book")
   private List<BookCopy> bookCopyList;
 
+  @Enumerated(EnumType.STRING)
   private Category category;
 }

@@ -17,6 +17,6 @@ public class Customer {
   private String firstname;
   private String lastname;
 
-  @OneToMany(mappedBy = "sale")
+  @OneToMany(mappedBy = "customer")
   private List<Sale> sales;
 }
