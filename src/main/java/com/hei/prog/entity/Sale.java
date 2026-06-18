@@ -1,18 +1,22 @@
 package com.hei.prog.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import java.time.Instant;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Entity
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Sale {
-  @Id private String id;
-  private String customerId;
-  private Instant soldAt;
+@Entity
+public class Sale extends Movement {
+  @OneToMany(mappedBy = "copy_book_movement")
+  private List<CopyBookMovement> copyBooks;
+
+  @ManyToOne private Customer customer;
 }

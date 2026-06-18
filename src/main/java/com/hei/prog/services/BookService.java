@@ -29,7 +29,7 @@ public class BookService {
   public Book update(String id, Book bookDetails) {
     Book existing = getById(id);
     existing.setTitle(bookDetails.getTitle());
-    existing.setAuthorId(bookDetails.getAuthorId());
+    existing.setAuthor(bookDetails.getAuthor());
     existing.setCategory(bookDetails.getCategory());
     return bookRepository.save(existing);
   }
