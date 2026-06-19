@@ -3,6 +3,7 @@ package com.hei.prog.services;
 import com.hei.prog.entity.Book;
 import com.hei.prog.repository.BookRepository;
 import java.util.List;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ public class BookService {
     return bookRepository.findAll();
   }
 
-  public Book getById(String id) {
+  public Book getById(UUID id) {
     return bookRepository
         .findById(id)
         .orElseThrow(() -> new RuntimeException("Book not found: " + id));
@@ -26,7 +27,7 @@ public class BookService {
     return bookRepository.save(book);
   }
 
-  public Book update(String id, Book bookDetails) {
+  public Book update(UUID id, Book bookDetails) {
     Book existing = getById(id);
     existing.setTitle(bookDetails.getTitle());
     existing.setAuthor(bookDetails.getAuthor());
@@ -34,7 +35,7 @@ public class BookService {
     return bookRepository.save(existing);
   }
 
-  public void delete(String id) {
+  public void delete(UUID id) {
     bookRepository.deleteById(id);
   }
 }

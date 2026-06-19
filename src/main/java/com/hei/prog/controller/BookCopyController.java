@@ -2,6 +2,7 @@ package com.hei.prog.controller;
 
 import com.hei.prog.entity.BookCopy;
 import com.hei.prog.services.BookCopyService;
+import com.hei.prog.utils.UuidParser;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +22,7 @@ public class BookCopyController {
 
   @GetMapping("/{id}")
   public BookCopy getById(@PathVariable String id) {
-    return bookCopyService.getById(id);
-  }
-
-  @GetMapping("/book/{bookId}")
-  public List<BookCopy> getByBookId(@PathVariable String bookId) {
-    return bookCopyService.getByBookId(bookId);
+    return bookCopyService.getById(UuidParser.parse(id));
   }
 
   @PostMapping
@@ -36,12 +32,12 @@ public class BookCopyController {
 
   @PutMapping("/{id}")
   public BookCopy update(@PathVariable String id, @RequestBody BookCopy bookCopy) {
-    return bookCopyService.update(id, bookCopy);
+    return bookCopyService.update(UuidParser.parse(id), bookCopy);
   }
 
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> delete(@PathVariable String id) {
-    bookCopyService.delete(id);
+    bookCopyService.delete(UuidParser.parse(id));
     return ResponseEntity.noContent().build();
   }
 }

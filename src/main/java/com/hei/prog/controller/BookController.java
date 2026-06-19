@@ -2,6 +2,7 @@ package com.hei.prog.controller;
 
 import com.hei.prog.entity.Book;
 import com.hei.prog.services.BookService;
+import com.hei.prog.utils.UuidParser;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class BookController {
 
   @GetMapping("/{id}")
   public Book getById(@PathVariable String id) {
-    return bookService.getById(id);
+    return bookService.getById(UuidParser.parse(id));
   }
 
   @PostMapping
@@ -31,12 +32,12 @@ public class BookController {
 
   @PutMapping("/{id}")
   public Book update(@PathVariable String id, @RequestBody Book book) {
-    return bookService.update(id, book);
+    return bookService.update(UuidParser.parse(id), book);
   }
 
   @DeleteMapping("/{id}")
   public ResponseEntity<Void> delete(@PathVariable String id) {
-    bookService.delete(id);
+    bookService.delete(UuidParser.parse(id));
     return ResponseEntity.noContent().build();
   }
 }

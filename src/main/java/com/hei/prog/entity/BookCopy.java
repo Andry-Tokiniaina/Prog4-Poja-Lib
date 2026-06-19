@@ -2,6 +2,7 @@ package com.hei.prog.entity;
 
 import com.hei.prog.entity.enums.BookFormat;
 import jakarta.persistence.*;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class BookCopy {
-  @Id private String id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private UUID id;
+
   @ManyToOne private Book book;
 
   @Enumerated(EnumType.STRING)

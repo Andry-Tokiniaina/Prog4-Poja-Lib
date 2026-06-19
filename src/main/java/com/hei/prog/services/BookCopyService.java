@@ -17,28 +17,23 @@ public class BookCopyService {
     return bookCopyRepository.findAll();
   }
 
-  public List<BookCopy> getByBookId(String bookId) {
-    return bookCopyRepository.findByBookId(bookId);
-  }
-
-  public BookCopy getById(String id) {
+  public BookCopy getById(UUID id) {
     return bookCopyRepository
         .findById(id)
         .orElseThrow(() -> new RuntimeException("BookCopy not found: " + id));
   }
 
   public BookCopy create(BookCopy bookCopy) {
-    bookCopy.setId(UUID.randomUUID().toString());
     return bookCopyRepository.save(bookCopy);
   }
 
-  public BookCopy update(String id, BookCopy details) {
+  public BookCopy update(UUID id, BookCopy details) {
     BookCopy existing = getById(id);
     if (existing == null) throw new IllegalArgumentException("bo not found");
     return bookCopyRepository.save(details);
   }
 
-  public void delete(String id) {
+  public void delete(UUID id) {
     bookCopyRepository.deleteById(id);
   }
 }
