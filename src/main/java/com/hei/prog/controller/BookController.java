@@ -5,6 +5,7 @@ import com.hei.prog.services.BookService;
 import com.hei.prog.utils.UuidParser;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,8 +27,10 @@ public class BookController {
   }
 
   @PostMapping
-  public Book create(@RequestBody Book book) {
-    return bookService.create(book);
+  public ResponseEntity<Book> create(@RequestBody Book book) {
+    return ResponseEntity
+            .status(HttpStatus.CREATED)
+            .body(bookService.create(book));
   }
 
   @PutMapping("/{id}")
