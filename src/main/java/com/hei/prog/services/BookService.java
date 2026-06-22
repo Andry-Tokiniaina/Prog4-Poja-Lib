@@ -1,5 +1,6 @@
 package com.hei.prog.services;
 
+import com.hei.prog.endpoint.exception.NotFoundException;
 import com.hei.prog.entity.Book;
 import com.hei.prog.repository.BookRepository;
 import java.util.List;
@@ -18,9 +19,7 @@ public class BookService {
   }
 
   public Book getById(UUID id) {
-    return bookRepository
-        .findById(id)
-        .orElseThrow(() -> new RuntimeException("Book not found: " + id));
+    return bookRepository.findById(id).orElseThrow(() -> new NotFoundException("Book", id));
   }
 
   public Book create(Book book) {
